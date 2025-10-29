@@ -1,6 +1,4 @@
-// wait for page to load
 window.addEventListener('DOMContentLoaded', function() {
-    // get all elements from html
     var textArea = document.getElementById('text-input');
     var checkBox = document.getElementById('exclude-spaces');
     var setLimitCheckBox = document.getElementById('set-limit');
@@ -8,15 +6,12 @@ window.addEventListener('DOMContentLoaded', function() {
     var limitContainer = document.getElementById('limit-container');
     var warningBox = document.getElementById('warning-message');
     
-    // get char counter element
     var charCounterBox = document.getElementById('char-counter');
     var charCounter = charCounterBox.querySelector('.count');
     
-    // get word counter element
     var wordCounterBox = document.getElementById('word-counter');
     var wordCounter = wordCounterBox.querySelector('.count');
     
-    // get sentence counter element
     var sentenceCounterBox = document.getElementById('sentence-counter');
     var sentenceCounter = sentenceCounterBox.querySelector('.count');
     var readingTime = document.getElementById('reading-time');
@@ -25,14 +20,11 @@ window.addEventListener('DOMContentLoaded', function() {
     var moreButton = document.getElementById('see-more-btn');
     var themeButton = document.getElementById('theme-toggle');
     
-    // variables to remember things
     var showAll = false; 
     var darkMode = true;
     
-    // run update function when page loads
     updateEverything();
     
-    // add event listeners
     textArea.addEventListener('input', updateEverything);
     checkBox.addEventListener('change', updateEverything);
     
@@ -60,7 +52,6 @@ window.addEventListener('DOMContentLoaded', function() {
         }
         charCounter.textContent = chars;
         
-        // check if limit is exceeded
         if (setLimitCheckBox.checked) {
             var limitValue = parseInt(limitInput.value);
             if (chars > limitValue) {
@@ -149,7 +140,6 @@ window.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // sort by count
         for (var x = 0; x < letterList.length; x++) {
             for (var y = 0; y < letterList.length - 1; y++) {
                 if (letterList[y].count < letterList[y + 1].count) {
